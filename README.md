@@ -1,4 +1,4 @@
-mg-api
+spring-quasar
 ======
 
 Playing around with Spring Boot, Kotlin, Comsat/Quasar, and postgresql.
