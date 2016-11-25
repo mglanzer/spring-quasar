@@ -2,6 +2,7 @@ buildscript {
     ext {
 		springBootVersion = '1.4.2.RELEASE'
         kotlin_version = '1.0.5-2'
+        quasar_version = '0.7.6'
 	}
 	repositories {
 		mavenCentral()
@@ -31,7 +32,12 @@ repositories {
 
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-	
+
+    compile "co.paralleluniverse:quasar-core:$quasar_version"
+    compile "co.paralleluniverse:quasar-kotlin:$quasar_version"
+
+    compile('co.paralleluniverse:comsat-spring-boot:0.7.0')
+
     compile('org.springframework.boot:spring-boot-starter-web')
 	compile('org.springframework.boot:spring-boot-starter-jersey')
     compile("org.springframework.boot:spring-boot-starter-data-jpa")
