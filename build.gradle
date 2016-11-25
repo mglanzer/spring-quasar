@@ -1,19 +1,21 @@
 buildscript {
     ext {
-		springBootVersion = '1.4.2.RELEASE'
-        kotlin_version = '1.0.5-2'
-        quasar_version = '0.7.6'
+		springBootVer = '1.4.2.RELEASE'
+        kotlinVer = '1.0.5-2'
+        quasarVer = '0.7.6'
+        comsatVer = '0.7.0'
 	}
 	repositories {
 		mavenCentral()
 	}
 	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+		classpath "org.springframework.boot:spring-boot-gradle-plugin:$springBootVer"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVer"
     }
 }
 
 apply plugin: 'java'
+apply plugin: 'war'
 apply plugin: 'kotlin'
 apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
@@ -31,10 +33,14 @@ repositories {
 }
 
 dependencies {
-    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVer"
 
-    compile "co.paralleluniverse:quasar-core:$quasar_version"
-    compile "co.paralleluniverse:quasar-kotlin:$quasar_version"
+    compile "co.paralleluniverse:quasar-core:$quasarVer"
+    compile "co.paralleluniverse:quasar-kotlin:$quasarVer"
+    compile "co.paralleluniverse:comsat-actors-api:$comsatVer"
+    compile "co.paralleluniverse:comsat-actors-servlet:$comsatVer"
+    compile "co.paralleluniverse:comsat-jax-rs-client:$comsatVer"
+    runtime "co.paralleluniverse:comsat-jdbc:$comsatVer"
 
     compile('co.paralleluniverse:comsat-spring-boot:0.7.0')
 

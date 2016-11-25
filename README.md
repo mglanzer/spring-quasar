@@ -12,10 +12,14 @@ Playing around with Spring Boot, Kotlin, Comsat/Quasar, and postgresql.
 
 ## Running
 
-To enable Fiber-backed controller methods the Quasar java agent must be enabled via JVM argument:
+To enable Fiber-backed controller the quasar class loader is specified in src/main/webapp/META-INF/context.xml:
+```
+<Loader loaderClass="co.paralleluniverse.comsat.tomcat.QuasarWebAppClassLoader" />
+```
+
+Another, more general, method is to enable the Quasar java agent via JVM argument:
 ```
 -javaagent:build/resources/main/java-agents/quasar-core-0.7.6.jar
 ```
 
-There is another way to make this work with embedded Tomcat, but the method above seemed pretty simple.  
-The docs: http://docs.paralleluniverse.co/comsat/.
+Comsat docs: http://docs.paralleluniverse.co/comsat/.
